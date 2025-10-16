@@ -1,4 +1,7 @@
-const forms = document.querySelectorAll('.upload-card');
+function getForms() {
+  return Array.from(document.querySelectorAll('.upload-card'));
+}
+
 const yearSpan = document.getElementById('year');
 
 if (yearSpan) {
@@ -7,13 +10,41 @@ if (yearSpan) {
 
 function validateFileName(fileName, expectedPrefix) {
   if (!fileName || !expectedPrefix) {
-    return false;
+    return { isValid: false };
   }
 
-  return fileName.toLowerCase().startsWith(expectedPrefix.toLowerCase());
+  const trimmedPrefix = expectedPrefix.trim();
+  const normalizedPrefix = trimmedPrefix.toLowerCase();
+  const normalizedFileName = fileName.trim().toLowerCase();
+
+  if (!normalizedFileName.startsWith(normalizedPrefix)) {
+    return {
+      isValid: false,
+      message: `El archivo debe comenzar con "${trimmedPrefix}". Renómbralo antes de continuar.`,
+    };
+  }
+
+  const remainder = fileName.slice(trimmedPrefix.length);
+  const baseName = remainder.replace(/\.[^/.]+$/, '').trim();
+
+  if (!baseName) {
+    return {
+      isValid: false,
+      message: `Añade tu nombre después del prefijo indicado. Ejemplo: ${trimmedPrefix}TuNombre.pdf`,
+    };
+  }
+
+  if (/\s/.test(baseName)) {
+    return {
+      isValid: false,
+      message: 'Evita espacios en el nombre. Usa guiones bajos o mayúsculas para separar palabras.',
+    };
+  }
+
+  return { isValid: true };
 }
 
-forms.forEach((form) => {
+function enhanceForm(form) {
   const fileInput = form.querySelector('input[type="file"]');
   const submitButton = form.querySelector('button[type="submit"]');
   const status = form.querySelector('.upload-card__status');
@@ -61,10 +92,9 @@ forms.forEach((form) => {
 
     const fileName = fileInput.files[0].name.trim();
 
-    if (!validateFileName(fileName, prefix)) {
-      showError(
-        `El archivo debe comenzar con "${prefix}". Renómbralo antes de continuar.`,
-      );
+    const validation = validateFileName(fileName, prefix);
+    if (!validation.isValid) {
+      showError(validation.message);
       if (submitButton) {
         submitButton.disabled = true;
       }
@@ -100,6 +130,8 @@ forms.forEach((form) => {
       const driveWindow = window.open(driveUrl, '_blank');
       if (driveWindow) {
         driveWindow.opener = null;
+      } else {
+        window.location.href = driveUrl;
       }
     }
 
@@ -115,4 +147,23 @@ forms.forEach((form) => {
       submitButton.disabled = true;
     }
   });
-});
+}
+
+function initializeForms() {
+  const forms = getForms();
+
+  if (forms.length === 0) {
+    console.warn(
+      'No se encontraron formularios de carga en la página. Comprueba la estructura del documento.',
+    );
+    return;
+  }
+
+  forms.forEach(enhanceForm);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeForms);
+} else {
+  initializeForms();
+}
