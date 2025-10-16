@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Educación Personalizada - Envío de archivos</title>
+    <title>Educación Personalizada - Entrega de archivos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,12 +12,6 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
-    <script
-      async
-      defer
-      src="https://apis.google.com/js/api.js"
-      onload="gapiLoaded()"
-    ></script>
   </head>
   <body>
     <header class="hero">
@@ -30,17 +24,10 @@
         </p>
         <p class="hero__subtitle">Facultad de Educación - UNIR</p>
         <p class="hero__subtitle">Profesora: Graciela Cano</p>
-        <div class="hero__actions">
-          <button id="authorize_button" class="btn" disabled>
-            Iniciar sesión con Google
-          </button>
-          <button id="signout_button" class="btn btn--secondary" hidden>
-            Cerrar sesión
-          </button>
-        </div>
         <p class="hero__note">
-          Inicia sesión con tu cuenta de UNIR para autorizar el envío seguro a la
-          carpeta compartida en Google Drive.
+          Este espacio está reservado para adjuntar las actividades
+          correspondientes. Recuerda nombrar tus archivos siguiendo las
+          indicaciones para que podamos organizarlos en Drive.
         </p>
       </div>
     </header>
@@ -50,12 +37,15 @@
         <div class="section__header">
           <h2>Entrega de presentaciones</h2>
           <p>
-            Sube aquí las presentaciones correspondientes a tus intervenciones en
-            clase. Todos los archivos se guardarán automáticamente en la carpeta
-            compartida.
+            Nombra tu archivo como <strong>presentacion_TuNombre</strong> y
+            súbelo a la carpeta compartida para las intervenciones en clase.
           </p>
         </div>
-        <form class="upload-card" data-target="presentations">
+        <form
+          class="upload-card"
+          data-prefix="presentacion_"
+          data-drive-url="https://drive.google.com/drive/folders/10JBTIKMCgoQeQVibFc3YhJNGVxEmWdIv?usp=sharing"
+        >
           <div class="upload-card__body">
             <label class="upload-card__label" for="presentation-file">
               Archivo de presentación
@@ -68,15 +58,17 @@
               required
             />
             <p class="upload-card__hint">
-              Formatos permitidos: PDF, PowerPoint, Keynote, imágenes y otros
-              documentos.
+              El nombre debe comenzar con <strong>presentacion_</strong> seguido
+              de tu nombre (por ejemplo, <em>presentacion_AnaLopez.pdf</em>).
             </p>
           </div>
           <div class="upload-card__footer">
-            <button type="submit" class="btn" disabled>Enviar presentación</button>
+            <button type="submit" class="btn" disabled>
+              Verificar y abrir carpeta
+            </button>
             <a
               class="upload-card__link"
-              href="https://drive.google.com/drive/folders/12FaYhyyBsXvtszZk0w-NVHt9yKXOVLfk?usp=sharing"
+              href="https://drive.google.com/drive/folders/10JBTIKMCgoQeQVibFc3YhJNGVxEmWdIv?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -87,36 +79,90 @@
         </form>
       </section>
 
-      <section class="section" id="actividades">
+      <section class="section" id="atributos">
         <div class="section__header">
-          <h2>Actividades voluntarias</h2>
+          <h2>Entrega de atributos personales</h2>
           <p>
-            Comparte tus actividades voluntarias realizadas durante el
-            cuatrimestre. Mantendremos todo organizado en la misma carpeta para
-            facilitar la revisión.
+            Utiliza el formato <strong>atributos_TuNombre</strong> para el
+            archivo que describe tus fortalezas y áreas de mejora.
           </p>
         </div>
-        <form class="upload-card" data-target="activities">
+        <form
+          class="upload-card"
+          data-prefix="atributos_"
+          data-drive-url="https://drive.google.com/drive/folders/1_HrvNTegsujz1qUvTlbuld_bRjNl7JFe?usp=sharing"
+        >
           <div class="upload-card__body">
-            <label class="upload-card__label" for="activities-file">
-              Archivo de la actividad
+            <label class="upload-card__label" for="attributes-file">
+              Archivo de atributos
             </label>
             <input
               type="file"
-              id="activities-file"
-              name="activities-file"
-              accept=".pdf,.doc,.docx,.jpg,.png,.zip"
+              id="attributes-file"
+              name="attributes-file"
+              accept=".pdf,.doc,.docx,.jpg,.png"
               required
             />
             <p class="upload-card__hint">
-              Puedes subir documentos, imágenes u otros archivos comprimidos.
+              Asegúrate de iniciar el nombre con
+              <strong>atributos_</strong> seguido de tu nombre (por ejemplo,
+              <em>atributos_CarlaPerez.pdf</em>).
             </p>
           </div>
           <div class="upload-card__footer">
-            <button type="submit" class="btn" disabled>Enviar actividad</button>
+            <button type="submit" class="btn" disabled>
+              Verificar y abrir carpeta
+            </button>
             <a
               class="upload-card__link"
-              href="https://drive.google.com/drive/folders/12FaYhyyBsXvtszZk0w-NVHt9yKXOVLfk?usp=sharing"
+              href="https://drive.google.com/drive/folders/1_HrvNTegsujz1qUvTlbuld_bRjNl7JFe?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver carpeta en Drive
+            </a>
+          </div>
+          <p class="upload-card__status" role="status"></p>
+        </form>
+      </section>
+
+      <section class="section" id="maria">
+        <div class="section__header">
+          <h2>Estudio de caso: María</h2>
+          <p>
+            Presenta tu análisis con el formato
+            <strong>Maria_TuNombre</strong> para mantener la coherencia del
+            archivo.
+          </p>
+        </div>
+        <form
+          class="upload-card"
+          data-prefix="Maria_"
+          data-drive-url="https://drive.google.com/drive/folders/1jzf0-3DxF8QN6fe-T2P5ZpBzZpSyspfM?usp=sharing"
+        >
+          <div class="upload-card__body">
+            <label class="upload-card__label" for="maria-file">
+              Archivo del caso María
+            </label>
+            <input
+              type="file"
+              id="maria-file"
+              name="maria-file"
+              accept=".pdf,.doc,.docx,.jpg,.png"
+              required
+            />
+            <p class="upload-card__hint">
+              Comienza el nombre con <strong>Maria_</strong> seguido de tu nombre
+              (por ejemplo, <em>Maria_LuisGomez.pdf</em>).
+            </p>
+          </div>
+          <div class="upload-card__footer">
+            <button type="submit" class="btn" disabled>
+              Verificar y abrir carpeta
+            </button>
+            <a
+              class="upload-card__link"
+              href="https://drive.google.com/drive/folders/1jzf0-3DxF8QN6fe-T2P5ZpBzZpSyspfM?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -131,9 +177,10 @@
     <footer class="footer">
       <div class="footer__content">
         <p>&copy; <span id="year"></span> UNIR - Educación Personalizada.</p>
+        <p class="footer__credit">Recurso creado por Graciela Cano.</p>
         <p>
-          Esta página utiliza la API de Google Drive. Asegúrate de haber iniciado
-          sesión con tu cuenta institucional antes de subir archivos.
+          Tras verificar el nombre del archivo se abrirá la carpeta de Drive en
+          una nueva pestaña para que completes el envío.
         </p>
       </div>
     </footer>
