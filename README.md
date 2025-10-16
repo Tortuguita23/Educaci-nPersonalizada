@@ -1,6 +1,6 @@
 # Educación Personalizada - Repositorio web
 
-Esta página permite a las y los estudiantes del curso "Educación personalizada. Fundamentos antropológicos, filosóficos y psicológicos" entregar sus presentaciones y actividades voluntarias directamente en una carpeta de Google Drive compartida.
+Esta página permite a las y los estudiantes del curso "Educación personalizada. Fundamentos antropológicos, filosóficos y psicológicos" entregar sus presentaciones y actividades voluntarias directamente en las carpetas de Google Drive compartidas, sin necesidad de abrir el propio Drive para completar la entrega.
 
 ## Estructura del proyecto
 
@@ -18,17 +18,16 @@ Para que las subidas funcionen necesitas crear un proyecto en Google Cloud y hab
    - Una clave de API (API Key).
    - Un ID de cliente OAuth 2.0 para aplicaciones web.
 4. Configura los orígenes autorizados y la URL de redirección según donde publiques la página.
-5. Copia los valores y sustitúyelos en `script.js` en las constantes `CLIENT_ID` y `API_KEY`.
+5. Copia los valores y sustitúyelos en el bloque `window.GOOGLE_DRIVE_CONFIG` incluido en `index.html`.
 
-> **Nota**: La carpeta de destino está fijada al identificador `12FaYhyyBsXvtszZk0w-NVHt9yKXOVLfk`. Si necesitas carpetas diferentes para presentaciones y actividades, actualiza los valores dentro del objeto `FOLDER_IDS` en `script.js`.
+> **Nota**: Cada formulario incluye el atributo `data-drive-folder` con el identificador de la carpeta de destino. Modifícalo si necesitas apuntar a otras carpetas.
 
 ## Uso
 
 1. Abre `index.html` en tu navegador.
-2. Pulsa **Iniciar sesión con Google** y autoriza el acceso a tu Google Drive.
-3. Selecciona el archivo que quieres enviar en la sección correspondiente.
-4. Haz clic en **Enviar** para subirlo a la carpeta compartida.
-5. Puedes consultar los archivos enviados desde el enlace "Ver carpeta en Drive" en cada sección.
+2. Selecciona el archivo que quieres enviar en la sección correspondiente.
+3. Haz clic en **Subir archivo a Drive**. Se solicitará autorización de Google la primera vez que envíes un documento.
+4. Tras la subida verás un mensaje de confirmación y podrás consultar los archivos enviados desde el enlace "Abrir carpeta en Drive" en cada sección.
 
 ## Personalización
 

@@ -198,6 +198,10 @@ input[type='file']:focus {
   color: #dc2626;
 }
 
+.upload-card__status--pending {
+  color: var(--unir-blue-dark);
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 3.5rem 1.25rem 2.75rem;
