@@ -68,6 +68,19 @@ body {
   opacity: 0.95;
 }
 
+.hero__guideline-title {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.hero__guideline {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
 main {
   max-width: 960px;
   margin: -2.75rem auto 4rem;
@@ -182,6 +195,15 @@ main {
 
   .hero__note {
     margin-top: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .hero__guideline-title {
+    font-size: 1.2rem;
+    margin: 1.5rem 0 0.45rem;
+  }
+
+  .hero__guideline {
     font-size: 0.95rem;
   }
 
