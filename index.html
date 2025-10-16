@@ -11,29 +11,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script>
-      window.GOOGLE_DRIVE_CONFIG = {
-        apiKey: 'REEMPLAZA_CON_TU_API_KEY',
-        clientId: 'REEMPLAZA_CON_TU_CLIENT_ID.apps.googleusercontent.com',
-        scope: 'https://www.googleapis.com/auth/drive.file',
-      };
-
-      window.__gapiLoadPromise = new Promise((resolve, reject) => {
-        window.__resolveGapiLoad = resolve;
-        window.__rejectGapiLoad = reject;
-      });
-
-      window.handleGapiLoaded = () => {
-        if (typeof window.__resolveGapiLoad === 'function') {
-          window.__resolveGapiLoad(window.gapi);
-        }
-      };
-    </script>
-    <script
-      src="https://apis.google.com/js/api.js?onload=handleGapiLoaded"
-      async
-      defer
-    ></script>
     <script defer src="script.js"></script>
   </head>
   <body>
@@ -48,10 +25,14 @@
         <p class="hero__subtitle">Facultad de Educación - UNIR</p>
         <p class="hero__subtitle">Profesora: Graciela Cano</p>
         <p class="hero__note">
-          Este espacio está reservado para adjuntar las actividades voluntarias
-          correspondientes. Inicia sesión con tu cuenta de Google, selecciona el
-          archivo y súbelo: el documento se guardará automáticamente en las
-          carpetas compartidas de Drive.
+          Este espacio reúne los accesos a las carpetas compartidas en Drive.
+          Abre la carpeta correspondiente y adjunta allí tus actividades
+          voluntarias.
+        </p>
+        <h2 class="hero__guideline-title">Recomendación de nombrado</h2>
+        <p class="hero__guideline">
+          Es más sencillo si nombran los archivos con el nombre de la actividad
+          seguido de su nombre.
         </p>
       </div>
     </header>
@@ -61,141 +42,76 @@
         <div class="section__header">
           <h2>Presentaciones Personales</h2>
           <p>
-            Adjunta tu presentación personal en formato PDF, PPT, DOC o imagen.
-            El archivo se enviará automáticamente a la carpeta compartida del
-            curso.
+            Abre la carpeta compartida y comparte tu archivo para que quede
+            disponible para la profesora y tus compañeros.
           </p>
         </div>
-        <form
-          class="upload-card"
-          data-drive-folder="10JBTIKMCgoQeQVibFc3YhJNGVxEmWdIv"
-          data-drive-url="https://drive.google.com/drive/folders/10JBTIKMCgoQeQVibFc3YhJNGVxEmWdIv?usp=sharing"
-        >
-          <div class="upload-card__body">
-            <label class="upload-card__label" for="presentation-file">
-              Presentaciones Personales
-            </label>
-            <input
-              type="file"
-              id="presentation-file"
-              name="presentation-file"
-              accept=".pdf,.ppt,.pptx,.key,.odp,.doc,.docx,.odt,.rtf,.jpg,.png"
-              required
-            />
-            <p class="upload-card__hint">
-              Se admiten archivos PDF, presentaciones (PPT, PPTX, KEY, ODP) y
-              documentos de texto (DOC, DOCX, ODT, RTF), además de imágenes en
-              formato JPG o PNG.
-            </p>
-          </div>
-          <div class="upload-card__footer">
-            <button type="submit" class="btn" disabled>
-              Subir archivo a Drive
-            </button>
-            <a
-              class="upload-card__link"
-              href="https://drive.google.com/drive/folders/10JBTIKMCgoQeQVibFc3YhJNGVxEmWdIv?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Abrir carpeta en Drive
-            </a>
-          </div>
-          <p class="upload-card__status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="resource-card">
+          <h3 class="resource-card__title">Presentaciones Personales</h3>
+          <p class="resource-card__hint">
+            Comparte tu archivo en la carpeta para que quede disponible.
+          </p>
+          <a
+            class="btn"
+            href="https://drive.google.com/drive/folders/10JBTIKMCgoQeQVibFc3YhJNGVxEmWdIv?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Abrir carpeta en Drive
+          </a>
+        </div>
       </section>
 
       <section class="section" id="atributos">
         <div class="section__header">
           <h2>Análisis personal de Atributos Radicales</h2>
           <p>
-            Sube tu documento con el análisis personal en cualquiera de los
-            formatos admitidos. Se almacenará de inmediato en la carpeta del
-            curso.
+            Utiliza la carpeta compartida para añadir tu análisis personal y
+            que el grupo pueda consultarlo.
           </p>
         </div>
-        <form
-          class="upload-card"
-          data-drive-folder="1_HrvNTegsujz1qUvTlbuld_bRjNl7JFe"
-          data-drive-url="https://drive.google.com/drive/folders/1_HrvNTegsujz1qUvTlbuld_bRjNl7JFe?usp=sharing"
-        >
-          <div class="upload-card__body">
-            <label class="upload-card__label" for="attributes-file">
-             Análisis personal de los atributos radicales
-            </label>
-            <input
-              type="file"
-              id="attributes-file"
-              name="attributes-file"
-              accept=".pdf,.ppt,.pptx,.key,.odp,.doc,.docx,.odt,.rtf,.jpg,.png"
-              required
-            />
-            <p class="upload-card__hint">
-              Se permiten archivos PDF, documentos de texto y presentaciones.
-              También puedes adjuntar imágenes JPG o PNG.
-            </p>
-          </div>
-          <div class="upload-card__footer">
-            <button type="submit" class="btn" disabled>
-              Subir archivo a Drive
-            </button>
-            <a
-              class="upload-card__link"
-              href="https://drive.google.com/drive/folders/1_HrvNTegsujz1qUvTlbuld_bRjNl7JFe?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Abrir carpeta en Drive
-            </a>
-          </div>
-          <p class="upload-card__status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="resource-card">
+          <h3 class="resource-card__title">
+            Análisis personal de los atributos radicales
+          </h3>
+          <p class="resource-card__hint">
+            Adjunta tu archivo de análisis de los atributos radicales si deseas
+            compartirlo con el resto del grupo-clase.
+          </p>
+          <a
+            class="btn"
+            href="https://drive.google.com/drive/folders/1_HrvNTegsujz1qUvTlbuld_bRjNl7JFe?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Abrir carpeta en Drive
+          </a>
+        </div>
       </section>
 
       <section class="section" id="maria">
         <div class="section__header">
           <h2>Caso Práctico: María</h2>
           <p>
-            Adjunta el caso práctico en el formato de tu preferencia y se
-            guardará automáticamente en la carpeta asignada del curso.
+            Sube tu caso práctico a la carpeta compartida y asegúrate de que se
+            identifique fácilmente.
           </p>
         </div>
-        <form
-          class="upload-card"
-          data-drive-folder="1jzf0-3DxF8QN6fe-T2P5ZpBzZpSyspfM"
-          data-drive-url="https://drive.google.com/drive/folders/1jzf0-3DxF8QN6fe-T2P5ZpBzZpSyspfM?usp=sharing"
-        >
-          <div class="upload-card__body">
-            <label class="upload-card__label" for="maria-file">
-             Caso práctico de María
-            </label>
-            <input
-              type="file"
-              id="maria-file"
-              name="maria-file"
-              accept=".pdf,.ppt,.pptx,.key,.odp,.doc,.docx,.odt,.rtf,.jpg,.png"
-              required
-            />
-            <p class="upload-card__hint">
-              Se admiten archivos en PDF, presentaciones, documentos de texto e
-              imágenes. Verifica que el contenido corresponda al caso práctico.
-            </p>
-          </div>
-          <div class="upload-card__footer">
-            <button type="submit" class="btn" disabled>
-              Subir archivo a Drive
-            </button>
-            <a
-              class="upload-card__link"
-              href="https://drive.google.com/drive/folders/1jzf0-3DxF8QN6fe-T2P5ZpBzZpSyspfM?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Abrir carpeta en Drive
-            </a>
-          </div>
-          <p class="upload-card__status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="resource-card">
+          <h3 class="resource-card__title">Caso práctico de María</h3>
+          <p class="resource-card__hint">
+            Sube la propuesta de resolución del caso de María teniendo en cuenta
+            las estrategias de despliegue de los atributos radicales de María.
+          </p>
+          <a
+            class="btn"
+            href="https://drive.google.com/drive/folders/1jzf0-3DxF8QN6fe-T2P5ZpBzZpSyspfM?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Abrir carpeta en Drive
+          </a>
+        </div>
       </section>
     </main>
 
@@ -203,10 +119,6 @@
       <div class="footer__content">
         <p>&copy; <span id="year"></span> UNIR - Educación Personalizada.</p>
         <p class="footer__credit">Recurso creado por Graciela Cano.</p>
-        <p>
-          Tras verificar el nombre del archivo se abrirá la carpeta de Drive en
-          una nueva pestaña para que completes el envío.
-        </p>
       </div>
     </footer>
   </body>
