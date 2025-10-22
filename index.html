@@ -33,6 +33,108 @@
     </header>
 
     <main>
+      <section class="section" id="envio-directo">
+        <div class="section__header">
+          <h2>Entrega directa de documentos</h2>
+          <p>
+            Si no puedes acceder a las carpetas de Drive, utiliza este formulario
+            seguro para enviar tus actividades directamente a la coordinación del
+            curso.
+          </p>
+          <p class="section__note">
+            Sustituye la dirección de correo del formulario por la que prefieras
+            recibir las entregas (FormSubmit requiere una verificación previa y
+            admite archivos de hasta 5&nbsp;MB).
+          </p>
+        </div>
+        <div class="resource-card resource-card--form">
+          <h3 class="resource-card__title">Envía tu documentación</h3>
+          <p class="resource-card__hint">
+            Completa la información solicitada y adjunta el archivo
+            correspondiente a la actividad voluntaria.
+          </p>
+          <form
+            id="submissionForm"
+            class="upload-form"
+            method="POST"
+            enctype="multipart/form-data"
+            data-endpoint="https://formsubmit.co/ajax/tu-correo@ejemplo.com"
+          >
+            <div class="form-group">
+              <label for="fullName">Nombre completo</label>
+              <input
+                type="text"
+                id="fullName"
+                name="Nombre"
+                autocomplete="name"
+                placeholder="Nombre y apellidos"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input
+                type="email"
+                id="email"
+                name="Correo"
+                autocomplete="email"
+                placeholder="tu@correo.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="activity">Actividad</label>
+              <select id="activity" name="Actividad" required>
+                <option value="" disabled selected>
+                  Selecciona la actividad a la que corresponde el archivo
+                </option>
+                <option value="Presentación personal">Presentación personal</option>
+                <option value="Atributos radicales">
+                  Análisis personal de atributos radicales
+                </option>
+                <option value="Caso práctico María">Caso práctico: María</option>
+                <option value="Otra actividad">Otra actividad</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="file">Archivo a enviar</label>
+              <input
+                type="file"
+                id="file"
+                name="Archivo"
+                accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.zip,.rar"
+                required
+              />
+              <span class="form-hint"
+                >Tamaño máximo 5&nbsp;MB. Renombra el archivo incluyendo tu
+                nombre.</span
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaje (opcional)</label>
+              <textarea
+                id="message"
+                name="Mensaje"
+                rows="4"
+                placeholder="Añade cualquier comentario que necesite la profesora."
+              ></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="Nueva entrega de actividades" />
+            <input type="hidden" name="_captcha" value="false" />
+
+            <button type="submit" class="btn" id="submitButton">
+              Enviar documento
+            </button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
       <section class="section" id="presentaciones">
         <div class="section__header">
           <h2>Presentaciones Personales</h2>
