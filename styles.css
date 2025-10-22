@@ -96,6 +96,12 @@ main {
   color: var(--gray-700);
 }
 
+.section__note {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--gray-500);
+}
+
 .resource-card {
   background-color: var(--white);
   padding: 2rem;
@@ -104,6 +110,10 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.resource-card--form {
+  gap: 2rem;
 }
 
 .resource-card__title {
@@ -117,6 +127,69 @@ main {
   margin: 0;
   font-size: 0.98rem;
   color: var(--gray-500);
+}
+
+.upload-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--unir-blue);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--black);
+  background-color: var(--gray-100);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--unir-blue);
+  box-shadow: 0 0 0 3px rgba(0, 70, 173, 0.15);
+  background-color: var(--white);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-hint {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+.form-status {
+  margin: 0;
+  min-height: 1.2rem;
+  font-size: 0.95rem;
+  color: var(--gray-700);
+}
+
+.form-status--success {
+  color: #0a7c3a;
+}
+
+.form-status--error {
+  color: #b91c1c;
 }
 
 .btn {
@@ -196,6 +269,10 @@ main {
 
   .resource-card {
     padding: 1.85rem 1.75rem;
+  }
+
+  .resource-card--form {
+    padding-bottom: 1.95rem;
   }
 }
 
