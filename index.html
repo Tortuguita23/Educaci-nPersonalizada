@@ -42,9 +42,9 @@
             curso.
           </p>
           <p class="section__note">
-            Sustituye la dirección de correo del formulario por la que prefieras
-            recibir las entregas (FormSubmit requiere una verificación previa y
-            admite archivos de hasta 5&nbsp;MB).
+            La entrega llega automáticamente al equipo docente, sin necesidad de
+            que indiques correos electrónicos adicionales. Los archivos admitidos
+            tienen un tamaño máximo de 15&nbsp;MB.
           </p>
         </div>
         <div class="resource-card resource-card--form">
@@ -58,7 +58,9 @@
             class="upload-form"
             method="POST"
             enctype="multipart/form-data"
-            data-endpoint="https://formsubmit.co/ajax/tu-correo@ejemplo.com"
+            data-endpoint=""
+            data-endpoint-token="YWN0aXZpZGFkZXMuY29tcGxlbWVudGFyaWFzQHVuaXIuZXM="
+            data-max-size-bytes="15728640"
           >
             <div class="form-group">
               <label for="fullName">Nombre completo</label>
@@ -68,18 +70,6 @@
                 name="Nombre"
                 autocomplete="name"
                 placeholder="Nombre y apellidos"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="email">Correo electrónico</label>
-              <input
-                type="email"
-                id="email"
-                name="Correo"
-                autocomplete="email"
-                placeholder="tu@correo.com"
                 required
               />
             </div>
@@ -109,7 +99,7 @@
                 required
               />
               <span class="form-hint"
-                >Tamaño máximo 5&nbsp;MB. Renombra el archivo incluyendo tu
+                >Tamaño máximo 15&nbsp;MB. Renombra el archivo incluyendo tu
                 nombre.</span
               >
             </div>
@@ -126,6 +116,7 @@
 
             <input type="hidden" name="_subject" value="Nueva entrega de actividades" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
 
             <button type="submit" class="btn" id="submitButton">
               Enviar documento
