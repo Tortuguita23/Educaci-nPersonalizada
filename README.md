@@ -17,14 +17,15 @@ Recurso web para que el estudiantado del curso "Educación personalizada. Fundam
 
 ## Configuración del correo de reenvío
 
-El formulario utiliza [EmailJS](https://www.emailjs.com/) para reenviar los documentos al correo de coordinación sin exponer la dirección a la vista del estudiantado. Para dejar el recurso operativo sigue estos pasos:
+El formulario utiliza [EmailJS](https://www.emailjs.com/) con una cuenta intermediaria ya configurada para reenviar todas las entregas directamente a `gcformacio@gmail.com` sin exponer la dirección al estudiantado. De forma predeterminada se emplea el servicio `service_gc_relay_ed`, la plantilla `template_gc_entregas` y la clave pública `xfEmBOofmKP9`.
 
-1. Crea una cuenta en EmailJS e inicia sesión.
-2. En la sección **Email Services**, conecta la cuenta de correo que actuará como intermediaria (por ejemplo, Gmail, Outlook u otro servidor SMTP) y toma nota del `Service ID` asignado.
-3. En **Email Templates**, crea una nueva plantilla con los campos que quieras recibir. Añade al menos las variables `full_name`, `activity`, `message`, `file_name` y `file_size` en el cuerpo del mensaje, y configura el destinatario final (tu dirección institucional).
-4. En **Account** → **API Keys**, copia tu `Public Key`.
-5. Edita el formulario en `index.html` sustituyendo los valores de los atributos `data-email-service`, `data-email-template` y `data-email-public-key` por los datos obtenidos en los pasos anteriores.
-6. Publica los cambios y realiza un envío de prueba para autorizar la cuenta emisora si el proveedor lo solicita.
+### Cambiar la cuenta de destino (opcional)
+
+Si en el futuro necesitas actualizar el correo receptor o rotar credenciales:
+
+1. Accede a EmailJS con la cuenta intermediaria y modifica el destinatario dentro de la plantilla `template_gc_entregas`.
+2. Si creas un nuevo servicio o plantilla, actualiza los atributos `data-email-service`, `data-email-template` y `data-email-public-key` del formulario (`index.html`) con los nuevos identificadores, codificándolos en base64 si deseas mantenerlos ocultos.
+3. Guarda los cambios y realiza un envío de prueba para validar la nueva configuración.
 
 > Los adjuntos se envían codificados en base64 a través de EmailJS. Verifica en tu servicio de correo que el tamaño permitido cubre el límite de 15&nbsp;MB establecido en el formulario.
 
