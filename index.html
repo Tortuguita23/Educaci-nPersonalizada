@@ -11,6 +11,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <script defer src="script.js"></script>
   </head>
   <body>
@@ -25,9 +29,8 @@
         <p class="hero__subtitle">Facultad de Educación - UNIR</p>
         <p class="hero__subtitle">Profesora: Graciela Cano</p>
         <p class="hero__note">
-          Este espacio reúne los accesos a las carpetas compartidas en Drive.
-          Abre la carpeta correspondiente y adjunta allí tus actividades
-          voluntarias.
+          Utiliza este recurso para compartir conmigo, y con el grupo-clase,
+          tus actividades complementarias.
         </p>
       </div>
     </header>
@@ -37,49 +40,39 @@
         <div class="section__header">
           <h2>Entrega directa de documentos</h2>
           <p>
-            Si no puedes acceder a las carpetas de Drive, utiliza este formulario
-            seguro para enviar tus actividades directamente a la coordinación del
-            curso.
+            Cuenta con este formulario seguro para compartir tus actividades de
+            manera directa y acompañar el proceso formativo del grupo.
           </p>
           <p class="section__note">
-            Sustituye la dirección de correo del formulario por la que prefieras
-            recibir las entregas (FormSubmit requiere una verificación previa y
-            admite archivos de hasta 5&nbsp;MB).
+            Tus entregas se registran automáticamente, sin que debas añadir datos
+            adicionales. Los archivos admitidos tienen un tamaño máximo de
+            15&nbsp;MB.
           </p>
         </div>
         <div class="resource-card resource-card--form">
           <h3 class="resource-card__title">Envía tu documentación</h3>
           <p class="resource-card__hint">
-            Completa la información solicitada y adjunta el archivo
-            correspondiente a la actividad voluntaria.
+            Completa la información solicitada y adjunta el archivo que deseas
+            compartir.
           </p>
           <form
             id="submissionForm"
             class="upload-form"
             method="POST"
             enctype="multipart/form-data"
-            data-endpoint="https://formsubmit.co/ajax/tu-correo@ejemplo.com"
+            data-email-service="REEMPLAZA_CON_SERVICE_ID"
+            data-email-template="REEMPLAZA_CON_TEMPLATE_ID"
+            data-email-public-key="REEMPLAZA_CON_PUBLIC_KEY"
+            data-max-size-bytes="15728640"
           >
             <div class="form-group">
-              <label for="fullName">Nombre completo</label>
+              <label for="fullName">Nombre y apellido</label>
               <input
                 type="text"
                 id="fullName"
                 name="Nombre"
                 autocomplete="name"
-                placeholder="Nombre y apellidos"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="email">Correo electrónico</label>
-              <input
-                type="email"
-                id="email"
-                name="Correo"
-                autocomplete="email"
-                placeholder="tu@correo.com"
+                placeholder="Nombre y apellido"
                 required
               />
             </div>
@@ -109,7 +102,7 @@
                 required
               />
               <span class="form-hint"
-                >Tamaño máximo 5&nbsp;MB. Renombra el archivo incluyendo tu
+                >Tamaño máximo 15&nbsp;MB. Renombra el archivo incluyendo tu
                 nombre.</span
               >
             </div>
@@ -120,12 +113,17 @@
                 id="message"
                 name="Mensaje"
                 rows="4"
-                placeholder="Añade cualquier comentario que necesite la profesora."
+                placeholder="Puedes expresarme aquí lo que consideres relevante sobre tu actividad."
               ></textarea>
+              <span class="form-hint">
+                En la parte de enviarme un mensaje, puedes escribir aquí algo que
+                necesites expresarme respecto a la actividad que estás enviando.
+              </span>
             </div>
 
             <input type="hidden" name="_subject" value="Nueva entrega de actividades" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
 
             <button type="submit" class="btn" id="submitButton">
               Enviar documento
@@ -135,80 +133,6 @@
         </div>
       </section>
 
-      <section class="section" id="presentaciones">
-        <div class="section__header">
-          <h2>Presentaciones Personales</h2>
-          <p>
-            Accede a la carpeta compartida para subir tu presentación personal.
-          </p>
-        </div>
-        <div class="resource-card">
-          <h3 class="resource-card__title">Presentaciones Personales</h3>
-          <p class="resource-card__hint">
-            Adjunta el material en la carpeta y revisa que el nombre del archivo
-            incluya tu nombre y apellido.
-          </p>
-          <a
-            class="btn"
-            href="https://drive.google.com/drive/folders/10JBTIKMCgoQeQVibFc3YhJNGVxEmWdIv?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Abrir carpeta en Drive
-          </a>
-        </div>
-      </section>
-
-      <section class="section" id="atributos">
-        <div class="section__header">
-          <h2>Análisis personal de Atributos Radicales</h2>
-          <p>
-            Utiliza la carpeta compartida para añadir tu documento con el análisis
-            personal de los atributos radicales, y su propuesta de mejora. 
-          </p>
-        </div>
-        <div class="resource-card">
-          <h3 class="resource-card__title">
-            Análisis personal de los atributos radicales
-          </h3>
-          <p class="resource-card__hint">
-            Adjunta el material en la carpeta y revisa que el nombre del archivo
-            incluya tu nombre y apellido.
-          </p>
-          <a
-            class="btn"
-            href="https://drive.google.com/drive/folders/1_HrvNTegsujz1qUvTlbuld_bRjNl7JFe?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Abrir carpeta en Drive
-          </a>
-        </div>
-      </section>
-
-      <section class="section" id="maria">
-        <div class="section__header">
-          <h2>Caso Práctico: María</h2>
-          <p>
-            Sube tu caso práctico a la carpeta compartida.
-          </p>
-        </div>
-        <div class="resource-card">
-          <h3 class="resource-card__title">Caso práctico de María</h3>
-          <p class="resource-card__hint">
-            Adjunta el material en la carpeta y revisa que el nombre del archivo
-            incluya tus apellidos.
-          </p>
-          <a
-            class="btn"
-            href="https://drive.google.com/drive/folders/1jzf0-3DxF8QN6fe-T2P5ZpBzZpSyspfM?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Abrir carpeta en Drive
-          </a>
-        </div>
-      </section>
     </main>
 
     <footer class="footer">
